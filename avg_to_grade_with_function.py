@@ -60,14 +60,12 @@ def get_grade(avg_score): #평균 점수를 받아서 학점을 구해주는 함
     return grade
     
 grade = get_grade(avg_score)
-print(grade)
 
 def sorted_rank(total_score):
     rank = [sorted(total_score, reverse = True).index(i) for i in total_score]
     return rank
 
 rank = sorted_rank(total_score)
-print(type(rank[1]))
 
 
 
