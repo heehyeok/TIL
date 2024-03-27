@@ -14,15 +14,6 @@ def get_info(): #5개의 학생(이름, 학번)으로부터 3개의 교과목을
 
     return student_name, student_id, english_score, c_score, python_score
 
-student_name, student_id, english_score, c_score, python_score= get_info()
-
-# student_name =["a","b","c","d","e"]
-# student_id = [2020,2021,2022,2023,2024]
-# english_score =[90,20,30,40,50]
-# c_score = [100,20,30,40,50]
-# python_score = [40,50,60,70,100]
-
-
 def calculate(eng_score, c_score, python_score): #3개의 교과목 점수를 받아서 평균과 총점을 구해주는 함수
     total_score = []
     avg_score = []
@@ -36,8 +27,6 @@ def calculate(eng_score, c_score, python_score): #3개의 교과목 점수를 �
         avg_score.append(total_score[i] / 3)
 
     return total_score, avg_score
-
-total_score, avg_score =calculate(english_score, c_score, python_score)
 
 def get_grade(avg_score): #평균 점수를 받아서 학점을 구해주는 함수
     grade = []
@@ -58,16 +47,10 @@ def get_grade(avg_score): #평균 점수를 받아서 학점을 구해주는 함
             grade.append("F")
 
     return grade
-    
-grade = get_grade(avg_score)
 
 def sorted_rank(total_score):
     rank = [sorted(total_score, reverse = True).index(i) for i in total_score]
     return rank
-
-rank = sorted_rank(total_score)
-
-
 
 def print_info(student_name, student_id, eng_score, c_score, python_score, total, avg, grade, rank):
     print("성적 관리 프로그램")
@@ -76,5 +59,14 @@ def print_info(student_name, student_id, eng_score, c_score, python_score, total
     print("=" * 94)
     for i in range(0,5):
         print(f"{student_id[i]}\t{student_name[i]}\t{eng_score[i]}\t{c_score[i]}\t{python_score[i]}\t{total[i]}\t{avg[i]: 4.2f}\t{grade[i]}\t{rank[i]+1}\t")
+
+
+student_name, student_id, english_score, c_score, python_score= get_info()
+
+total_score, avg_score =calculate(english_score, c_score, python_score)
+
+grade = get_grade(avg_score)
+
+rank = sorted_rank(total_score)
     
 print_info(student_name, student_id, english_score, c_score, python_score,total_score, avg_score, grade,rank)
